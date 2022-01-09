@@ -10,10 +10,23 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class HomeController {
 	
-	@RequestMapping("/home")
-	public ModelAndView home(HttpServletRequest request, HttpServletResponse response) {
+	public HomeController() {
+		System.out.println("in HC no-rgs constructor");
+	}
+	
+	@RequestMapping("/")
+	public ModelAndView showHome(HttpServletRequest request, HttpServletResponse response) {
+		System.out.println("in HC-> showHome()");
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("home");
 		return mv;
 	}
+	
+	@RequestMapping("/openInputView")
+	public String showInputView() {
+		
+		System.out.println("in HC->showInputView()");
+		return "input";
+	}
+	
 }
